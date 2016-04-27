@@ -1,7 +1,7 @@
 {
   "name": "angular-es6",
   "version": "1.0.0",
-  "description": "My Test ES6 for AngulkarJS 1.x",
+  "description": "My Test ES6 for AngularJS 1.x",
   "main": "app.js",
   "scripts": {
     "start": "webpack-dev-server --content-base src --hot --port 9000",
@@ -9,7 +9,9 @@
   },
   "dependencies": {
     "angular": "^1.5.3",
-    "angular-mocks": "^1.5.3"
+    "angular-mocks": "^1.5.3",
+    "angular-ui-router":"*",
+    "ui-router-extras": "*"
   },
   "devDependencies":{
     "babel-core": "6.4.0",
@@ -32,6 +34,7 @@
     "expose-loader": "^0.7.0",
     "file-loader": "^0.8.4",
     "ng-annotate-loader": "^0.1.0"
+
   },
   "author": "Sateesh Kommineni",
   "license": "ISC"
