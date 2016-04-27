@@ -1,20 +1,15 @@
-import 'angular';
-//import localStorageServiceProvider from 'angular-local-storage';
+import * as angular from 'angular';
+import uiRouter from 'angular-ui-router';
 
-import $compileProvider from 'angular';
-
-export default function config($compileProvider, $log,$logProvider,$stateProvider, $urlRouterProvider) {
-    'ngInject';
-    /* @ngInject */
-
-    $log.info('.config() : START ');
-
-    $compileProvider.debugInfoEnabled(!prod);
+export default function config($stateProvider,$compileProvider, $logProvider,$urlRouterProvider) {
+    //'ngInject';
+    // $compileProvider, $logProvider, , $urlRouterProvider
+    $compileProvider.debugInfoEnabled(true);
 
     $logProvider.debugEnabled(true);
 
 
-    $stateProvider.state('desktop', {
+    $stateProvider.state('home', {
         url: '/',
         views: {
             'main': {
@@ -22,8 +17,18 @@ export default function config($compileProvider, $log,$logProvider,$stateProvide
                 templateUrl: 'templates/app.tpl.html'
             }
         },
-        data: {pageTitle: 'Enterprise Desktop'}
+        data: {pageTitle: 'My App'}
     });
+
+    $urlRouterProvider.when(/Place=(.*)/,function($location){
+        console.log('inside place=');
+        var url = $location.absUrl();
+        url = url.replace('Place=','#navID:');
+        url = url.replace('workspaceURL=','url:');
+        //$location.url(url);
+        window.location.href = url;
+    });
+    $urlRouterProvider.otherwise('/');
 }
 
-config.$inject =['$compileProvider', '$log','$logProvider','$stateProvider', '$urlRouterProvider'];
+config.$inject =['$stateProvider','$compileProvider', '$logProvider', '$urlRouterProvider'];

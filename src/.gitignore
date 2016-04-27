@@ -1,0 +1,13 @@
+/test/unit/main.js.map
+/test/unit/main.js
+node_modules/
+dist/
+.tmp/
+.idea/
+*.log
+logs/*
+!.gitkeep
+tmp
+.DS_Store
+coverage/
+test/unit.html

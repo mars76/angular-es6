@@ -3,8 +3,8 @@ export default class MyService {
         this.$log = $log;
     }
 
-    start(){
-        this.$log.info('Here in MyService.start() : []');
+    start(msg){
+        this.$log.info('Here in MyService.start() : [] calling from=['+msg+']');
     }
 }
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="my-app">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
@@ -11,8 +11,9 @@
 
 </head>
 
-<body ng-controller="appController">
+<body>
     <div ui-view="main"></div>
+    <test-directive/>
     <script src="bundle.js"></script>
 </body>
 </html>

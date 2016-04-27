@@ -1,10 +1,14 @@
 import MyService from './my-service';
-export default function run(MyService,$log) {
+import angular from 'angular';
+
+export default function run($log,MyService) {
     'ngInject';
-    /* @ngInject */
-    $log.info('.run() : Calling start and init on Heartbeat and PostMessage Services');
-    MyService.start();
+    let injector = angular.injector();
+    //let myService = injector.get('my-service');
+    $log.info('.run() : injector =['+injector+'] Calling My Service ');
+    MyService.start('from run()');
+    //$log.info('.run() : injector =['+injector+'] Calling My Service ');
 
 }
 
-run.$inject = [MyService.name,'$log'];
+run.$inject = ['$log','MyService'];
